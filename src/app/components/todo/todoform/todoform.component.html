@@ -1,0 +1,15 @@
+<form class="mb-4" name="form" #todoform="ngForm">
+    <div class="row m-0">
+        <div class="col-md-10 p-0">
+            <input type="text" class="form-control" placeholder="Enter Todo Item.." [(ngModel)]="tform.task" name="task"
+                #task required minlength="4">
+
+        </div>
+        <div class="col-md-2 text-start p-0">
+            <button type="submit" class="btn btn-light fw-bolder w-100" *ngIf="onSubmitValue"
+                [disabled]="todoform.form.invalid" (click)="onSubmit(todoform.value);todoform.reset();">SUBMIT</button>
+            <button type="submit" class="btn btn-light fw-bolder w-100" *ngIf="!onSubmitValue"
+                (click)="edit(todoform.value);todoform.reset();">EDIT</button>
+        </div>
+    </div>
+</form>

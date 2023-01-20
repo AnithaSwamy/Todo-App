@@ -1,0 +1,91 @@
+<app-todoform #fchild (todoItemCreated)="todoItemAdded($event)"
+  (todoItemEdited)="onEditTodoItem($event)"></app-todoform>
+<div class="card border-0">
+  <ul class="list-group">
+    <li class="list-group-item m-0 position-relative border-0">
+      <ul class="top-links">
+        <li class="text-muted">{{ pendingTaskLength }} items left</li>
+        <li>
+          <div class="nav nav-tabs border-0 px-5 mx-4" id="nav-tab" role="tablist">
+            <button class="nav-link text-body border-0 active" id="nav-all-tab" data-bs-toggle="tab"
+              data-bs-target="#nav-all" Aria-selected="true">All</button>
+            <button class="nav-link text-body border-0" id="nav-active-tab" data-bs-toggle="tab"
+              data-bs-target="#nav-active" aria-selected="false">Active</button>
+            <button class="nav-link text-body border-0" id="nav-completed-tab" data-bs-toggle="tab"
+              data-bs-target="#nav-completed" aria-selected="false">Completed</button>
+          </div>
+        </li>
+        <li (click)="onDeleteTodoItemCompleted()" style=" cursor: pointer;">Clear Completed</li>
+      </ul>
+    </li>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+        <li class="list-group-item m-0 position-relative border-0" *ngFor="let item of todo">
+          <a (click)="onUpdateTodoItem(item)" style="cursor: pointer;" class="float-start">
+            <span class="me-3">
+              <i [ngClass]="item.status == false ? 'fa-check-square-o' : 'fa-undo'" class="fa grd-icon"></i>
+            </span>
+          </a>
+          <h6 class="m-0 text-start text-body">
+            <span *ngIf="item.status == false">{{ item.task }}</span>
+            <del *ngIf="item.status == true" class="text-black-30"> {{ item.task }} </del>
+          </h6>
+          <a *ngIf="item.status == false" (click)="editItem(item)" style="cursor: pointer;">
+            <span class="ms-1 text-black-50 edit-icon"><i class="fa fa-pencil-square-o"></i></span>
+          </a>
+          <a (click)="onDeleteTodoItem(item.id)" style="cursor: pointer;">
+            <span class="ms-1 text-black-50 delete-icon"><i class="fa fa-trash-o"></i></span>
+          </a>
+        </li>
+        <!-- <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
+        <p class="text-danger text-center py-3 m-0" *ngIf="todo?.length == 0">No Task Found...</p>
+      </div>
+      <div class="tab-pane fade" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab">
+        <ng-container *ngFor="let item of todo;">
+          <li class="list-group-item m-0 position-relative border-0" *ngIf="item.status == false">
+            <a (click)="onUpdateTodoItem(item)" style="cursor: pointer;" class="float-start">
+              <span class="me-3">
+                <i [ngClass]="item.status == false ? 'fa-check-square-o' : 'fa-undo'" class="fa grd-icon"></i>
+              </span>
+            </a>
+            <h6 class="m-0 text-start text-body">
+              <span *ngIf="item.status == false">{{ item.task }}</span>
+              <del *ngIf="item.status !== false" class="text-black-30"> {{ item.task }} </del>
+            </h6>
+            <a (click)="editItem(item)" style="cursor: pointer;">
+              <span class="ms-1 text-black-50 edit-icon"><i class="fa fa-pencil-square-o"></i></span>
+            </a>
+            <a (click)="onDeleteTodoItem(item.id)" style="cursor: pointer;">
+              <span class="ms-1 text-black-50 delete-icon"><i class="fa fa-trash-o"></i></span>
+            </a>
+          </li>
+        </ng-container>
+        <p class="text-danger text-center py-3 m-0" *ngIf="!pendingTaskLength">No Active Task Found...</p>
+      </div>
+      <div class="tab-pane fade" id="nav-completed" role="tabpanel" aria-labelledby="nav-completed-tab">
+        <ng-container *ngFor="let item of todo;">
+          <li class="list-group-item m-0 position-relative border-0" *ngIf="item.status == true">
+            <a (click)="onUpdateTodoItem(item)" style="cursor: pointer;" class="float-start">
+              <span class="me-3">
+                <i [ngClass]="item.status !== true ? 'fa-check-square-o' : 'fa-undo'" class="fa grd-icon"></i>
+              </span>
+            </a>
+            <h6 class="m-0 text-start text-body">
+              <span *ngIf="item.status !== true">{{ item.task }}</span>
+              <del *ngIf="item.status == true" class="text-black-30"> {{ item.task }} </del>
+            </h6>
+            <a (click)="onDeleteTodoItem(item.id)" style="cursor: pointer;">
+              <span class="ms-1 text-black-50 delete-icon"><i class="fa fa-trash-o"></i></span>
+            </a>
+          </li>
+        </ng-container>
+        <p class="text-danger text-center py-3 m-0" *ngIf="!completeTaskLength">No Completed Task Found...</p>
+      </div>
+    </div>
+  </ul>
+
+  <div *ngIf="!todo" class="my-5 py-5">
+    <p class="text-primary text-center m-0">{{ errorMsg }}</p>
+  </div>
+</div>

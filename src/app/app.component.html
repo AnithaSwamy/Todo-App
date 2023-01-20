@@ -1,0 +1,30 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-transperent">
+  <div class="container">
+    <a class="navbar-brand" href="#" *ngIf="user">Hi {{ user }}!</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <div class=" d-flex">
+        <button type="button" class="btn btn-light" (click)="logoutUser()" *ngIf="user">Logout</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="todo-list-wrapper">
+  <div class="top-bg"></div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="main-card">
+        <div class="header">
+          <h1 class="text-start text-white fw-bolder">TODO.</h1>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

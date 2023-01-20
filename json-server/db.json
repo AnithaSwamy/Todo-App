@@ -1,0 +1,77 @@
+{
+  "todo": [
+    {
+      "id": 1,
+      "task": "Sample Task One",
+      "status": false
+    },
+    {
+      "id": 2,
+      "task": "Sample Task Two",
+      "status": true
+    },
+    {
+      "id": 3,
+      "task": "Sample Task Three",
+      "status": true
+    },
+    {
+      "id": 4,
+      "task": "Sample Task Four",
+      "status": false
+    },
+    {
+      "id": 5,
+      "task": "Sample Task Five",
+      "status": false
+    },
+    {
+      "id": 6,
+      "task": "Sample Task Six",
+      "status": false
+    },
+    {
+      "id": 7,
+      "task": "Sample Task Seven",
+      "status": true
+    },
+    {
+      "id": 8,
+      "task": "Sample Task Eight",
+      "status": false
+    },
+    {
+      "id": 9,
+      "task": "Sample Task Nine",
+      "status": true
+    },
+    {
+      "id": 10,
+      "task": "Sample Task Ten",
+      "status": false
+    }
+  ],
+  "user": [
+    {
+      "name": "Anitha",
+      "email": "anitha@gmail.com",
+      "phone": "9108239189",
+      "password": "password123",
+      "id": 1
+    },
+    {
+      "name": "Sharath",
+      "email": "sharath@gmail.com",
+      "phone": "32432",
+      "password": "password123",
+      "id": 2
+    },
+    {
+      "name": "Sumati",
+      "email": "sumati@gmail.com",
+      "phone": "1234567890",
+      "password": "password123",
+      "id": 3
+    }
+  ]
+}

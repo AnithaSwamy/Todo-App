@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.bg-muted {
+    background-color: #adadad;
+}
+
+.text-black-30 {
+    color: rgba(0, 0, 0, .3) !important;
+}
+
+.fs-07 {
+    font-size: 0.7rem;
+}
+
+.card {
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.grd-icon {
+    background: -webkit-gradient(linear, left top, left bottom, from(#B06AB3), to(#4568DC));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ngx-pagination {
+    margin: 20px 0;
+    padding: 0;
+    text-align: center;
+
+    .current {
+        padding: 2px 10px;
+        background: #0d6efd !important;
+        border: 1px solid;
+        border-radius: 4px;
+    }
+}
+
+#toast-container>div {
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    box-shadow: none !important;
+    padding: 12px 15px 8px 15px !important;
+    background-color: #323232 !important;
+    background-image: none !important;
+}
+
+button.toast-close-button {
+    top: -4px !important;
+    font-weight: 100 !important;
+}
+
+#toast-container>.toast-success {
+    background-image: none !important;
+}
