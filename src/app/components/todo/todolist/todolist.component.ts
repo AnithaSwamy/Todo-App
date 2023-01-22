@@ -21,10 +21,15 @@ export class TodolistComponent implements OnInit {
 
   title: any = "Todo List";
   today: number = Date.now();
-  completeTaskLength: any;
-  pendingTaskLength: any;
+
+  completeTask: any;
+  pendingTask: any;
   searchTask!: string;
 
+  tform ={
+    name: '',
+    email: ''
+  }
   constructor(private service: TodoService, private toastr: ToastrService, private router: Router) {
   }
 
@@ -36,8 +41,9 @@ export class TodolistComponent implements OnInit {
     this.service.getTodoList().subscribe(
       (response) => {
         this.todo = response;
-        this.completeTaskLength = response.filter(todo => todo.status == true).length;
-        this.pendingTaskLength = response.filter(todo => todo.status == false).length;
+        this.completeTask = response.filter(todo => todo.status == true);
+        this.pendingTask = response.filter(todo => todo.status == false);
+        console.log(this.todo);
       }, (error) => {
         console.log(error);
         this.errorMsg = error.status + " " + error.statusText;
@@ -103,7 +109,7 @@ export class TodolistComponent implements OnInit {
       );
   }
 
-  editItem(todo: any) {
+  onEditItem(todo: any) {
     this.fComp.tform.task = todo.task;
     this.fComp.tform.id = todo.id;
     this.fComp.onSubmitValue = false;

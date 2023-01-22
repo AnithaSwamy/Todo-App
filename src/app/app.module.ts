@@ -19,6 +19,7 @@ import { SignupComponent } from './components/user/signup/signup.component';
 
 import { TodoService } from './services/todo.service';
 import { AuthGuard } from './auth/auth.guard';
+import { TodoitemComponent } from './components/todo/todoitem/todoitem.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthGuard } from './auth/auth.guard';
     NotfoundComponent,
     NetworkerrorComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    TodoitemComponent
   ],
   imports: [
     BrowserModule,
