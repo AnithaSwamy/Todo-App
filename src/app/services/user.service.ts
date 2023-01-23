@@ -38,5 +38,5 @@ export class UserService {
     return this.http.post<User>(baseURL + "user", user)
       .pipe(catchError((error: HttpErrorResponse) => throwError(error)));
   }
-  
+
 }

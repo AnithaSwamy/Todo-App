@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TodolistComponent } from './todolist.component';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('TodolistComponent', () => {
   let component: TodolistComponent;
@@ -8,7 +10,8 @@ describe('TodolistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodolistComponent ]
+      declarations: [ TodolistComponent ],
+      imports: [ HttpClientModule, ToastrModule ]
     })
     .compileComponents();
 
