@@ -9,7 +9,7 @@ import { Todo } from '../../../shared/todo'
 export class TodoitemComponent implements OnInit {
 
   @Input() todolist: any;
-  @Output() updateItem = new EventEmitter<{ id: number; task: string; status: boolean }>();
+  @Output() updateItem = new EventEmitter<{ userId: number; id: number; task: string; status: boolean }>();
   @Output() deleteItem = new EventEmitter();
   @Output() editItem = new EventEmitter();
 
@@ -19,7 +19,7 @@ export class TodoitemComponent implements OnInit {
   }
 
   update(todo: Todo) {
-    this.updateItem.emit({ id: todo.id, task: todo.task, status: todo.status });
+    this.updateItem.emit({ userId: todo.userId, id: todo.id, task: todo.task, status: todo.status });
   }
 
   edit(todo: Todo) {

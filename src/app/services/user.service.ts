@@ -24,7 +24,8 @@ export class UserService {
   }
 
   logout() {
-    if (localStorage.removeItem('User') == null) {
+    localStorage.clear();
+    if (window.localStorage.removeItem('User') == null) {
       this.router.navigate(['login']);
     }
   }

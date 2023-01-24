@@ -1,59 +1,106 @@
 {
   "todo": [
     {
+      "userId": 1,
       "id": 1,
       "task": "Sample Task One",
       "status": false
     },
     {
-      "id": 2,
-      "task": "Sample Task Two",
+      "userId": 1,
+      "id": 3,
+      "task": "Sample Task Three",
       "status": true
     },
     {
-      "id": 3,
-      "task": "Sample Task Three",
+      "userId": 1,
+      "id": 4,
+      "task": "Sample Task Four",
       "status": false
     },
     {
-      "id": 4,
-      "task": "Sample Task Four",
-      "status": true
-    },
-    {
-      "id": 5,
-      "task": "Sample Task Five",
-      "status": true
-    },
-    {
+      "userId": 2,
       "id": 6,
       "task": "Sample Task Six",
       "status": false
     },
     {
+      "userId": 2,
       "id": 7,
       "task": "Sample Task Seven",
-      "status": false
+      "status": true
     },
     {
+      "userId": 3,
       "id": 8,
       "task": "Sample Task Eight",
       "status": true
     },
     {
+      "userId": 3,
       "id": 9,
       "task": "Sample Task Nine",
       "status": false
     },
     {
+      "userId": 2,
       "id": 10,
       "task": "Sample Task Ten",
-      "status": true
+      "status": false
     },
     {
+      "userId": 3,
       "id": 11,
       "task": "Sample Task Eleven",
       "status": false
+    },
+    {
+      "userId": 1,
+      "id": 12,
+      "task": "Sample Task Two",
+      "status": true
+    },
+    {
+      "userId": 1,
+      "task": "Sample Task Five",
+      "status": false,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "id": 14,
+      "task": "Sample Task Eleven",
+      "status": true
+    },
+    {
+      "userId": 4,
+      "id": 15,
+      "task": "Sample Task One",
+      "status": true
+    },
+    {
+      "userId": 4,
+      "task": "Sample Task Two",
+      "status": false,
+      "id": 16
+    },
+    {
+      "userId": 4,
+      "id": 17,
+      "task": "Sample Task Three",
+      "status": true
+    },
+    {
+      "userId": 4,
+      "id": 18,
+      "task": "Sample Task Four",
+      "status": true
+    },
+    {
+      "userId": 4,
+      "task": "Sample Task Five",
+      "status": false,
+      "id": 19
     }
   ],
   "user": [
@@ -77,6 +124,13 @@
       "phone": "1234567890",
       "password": "password123",
       "id": 3
+    },
+    {
+      "name": "Nandini",
+      "email": "nandini@gmail.com",
+      "phone": "1234567890",
+      "password": "password123",
+      "id": 4
     }
   ]
 }

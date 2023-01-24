@@ -21,34 +21,28 @@
 
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-
         <app-todoitem [todolist]="todo" (updateItem)="onUpdateTodoItem($event)" (deleteItem)="onDeleteTodoItem($event)"
           (editItem)="onEditItem($event)">
           <p class="text-danger text-center py-3 m-0" *ngIf="!todo?.length">No Task Found...</p>
         </app-todoitem>
-
       </div>
       <div class="tab-pane fade" id="nav-active" role="tabpanel" aria-labelledby="nav-active-tab">
-
         <app-todoitem [todolist]="pendingTask" (updateItem)="onUpdateTodoItem($event)"
           (deleteItem)="onDeleteTodoItem($event)" (editItem)="onEditItem($event)">
           <p class="text-danger text-center py-3 m-0" *ngIf="!pendingTask?.length">No Active Task Found...</p>
         </app-todoitem>
-
       </div>
       <div class="tab-pane fade" id="nav-completed" role="tabpanel" aria-labelledby="nav-completed-tab">
-
         <app-todoitem [todolist]="completeTask" (updateItem)="onUpdateTodoItem($event)"
           (deleteItem)="onDeleteTodoItem($event)">
           <p class="text-danger text-center py-3 m-0" *ngIf="!completeTask?.length">No Completed Task
             Found...</p>
         </app-todoitem>
-
       </div>
     </div>
   </ul>
 
-  <div *ngIf="!todo" class="my-5 py-5">
+  <!-- <div *ngIf="!todo" class="my-5 py-5">
     <p class="text-primary text-center m-0">{{ errorMsg }}</p>
-  </div>
+  </div> -->
 </div>

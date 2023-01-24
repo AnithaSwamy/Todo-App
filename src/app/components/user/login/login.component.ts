@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           return loginUser.email == this.loginForm.value.email && loginUser.password == this.loginForm.value.password;
         })
         if (user) {
-          localStorage.setItem("User",JSON.stringify(user.name));
+          localStorage.setItem("User",JSON.stringify(user));
           this.toastr.success('You Are Successfully Logged In');
           this.loginForm.reset();
           this.router.navigateByUrl('/todo');

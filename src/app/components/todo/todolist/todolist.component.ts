@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Todo } from '../../../shared/todo'
 import { TodoService } from '../../../services/todo.service'
+import { UserService } from '../../../services/user.service';
 import { TodoformComponent } from '../todoform/todoform.component';
 
 @Component({
@@ -24,25 +25,21 @@ export class TodolistComponent implements OnInit {
 
   completeTask: any;
   pendingTask: any;
-  searchTask!: string;
 
-  tform ={
-    name: '',
-    email: ''
+  constructor(private service: TodoService, private toastr: ToastrService, private router: Router,
+    private userApi: UserService, private route: ActivatedRoute) {
   }
-  constructor(private service: TodoService, private toastr: ToastrService, private router: Router) {
-  }
-
   ngOnInit() {
+    console.log(this.userApi.getAccessToken().id);
     this.getItems();
   }
 
   getItems() {
     this.service.getTodoList().subscribe(
       (response) => {
-        this.todo = response;
-        this.completeTask = response.filter(todo => todo.status == true);
-        this.pendingTask = response.filter(todo => todo.status == false);
+        this.todo = response.filter(item => item.userId == this.userApi.getAccessToken().id);
+        this.completeTask = this.todo.filter(item => item.status == true);
+        this.pendingTask = this.todo.filter(item => item.status == false);
         console.log(this.todo);
       }, (error) => {
         console.log(error);
@@ -51,9 +48,9 @@ export class TodolistComponent implements OnInit {
       });
   }
 
-  todoItemAdded(todo: { id: number; task: string; status: boolean; }) {
+  todoItemAdded(todo: { userId: number, id: number; task: string; status: boolean; }) {
     this.service.addTodoItem({
-      id: todo.id, task: todo.task, status: false
+      userId: this.userApi.getAccessToken().id, id: todo.id, task: todo.task, status: false
     })
       .subscribe((todo) => {
         console.log(todo);
@@ -100,8 +97,8 @@ export class TodolistComponent implements OnInit {
   }
 
   onUpdateTodoItem(todo: any) {
-    this.service.updateTodoById(todo.id, { id: todo.id, task: todo.task, status: todo.status == false ? true : false })
-      .subscribe((resp) => {
+    this.service.updateTodoById(todo.id, { userId: todo.userId, id: todo.id, task: todo.task, status: todo.status == false ? true : false })
+      .subscribe((_resp) => {
         this.toastr.success('Todo Item Status Has Been Updated');
         this.getItems();
       },
@@ -117,8 +114,8 @@ export class TodolistComponent implements OnInit {
   }
 
   onEditTodoItem(todo: any) {
-    this.service.editTodoById(todo.id, { id: this.fComp.tform.id, task: todo.task, status: todo.status })
-      .subscribe((resp) => {
+    this.service.editTodoById(todo.id, { userId: this.userApi.getAccessToken().id, id: this.fComp.tform.id, task: todo.task, status: todo.status })
+      .subscribe((_resp) => {
         this.toastr.success('Todo Item Has Been Updated');
         this.getItems();
       },
