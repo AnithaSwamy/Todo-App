@@ -10,7 +10,7 @@
       "userId": 1,
       "id": 3,
       "task": "Sample Task Three",
-      "status": true
+      "status": false
     },
     {
       "userId": 1,
@@ -58,7 +58,7 @@
       "userId": 1,
       "id": 12,
       "task": "Sample Task Two",
-      "status": true
+      "status": false
     },
     {
       "userId": 1,
@@ -70,7 +70,7 @@
       "userId": 1,
       "id": 14,
       "task": "Sample Task Eleven",
-      "status": true
+      "status": false
     },
     {
       "userId": 4,
@@ -143,6 +143,13 @@
       "phone": "1234567890",
       "password": "password123",
       "id": 4
+    },
+    {
+      "name": "Rajesh",
+      "email": "rajesh@gmail.com",
+      "phone": "1234567890",
+      "password": "password123",
+      "id": 5
     }
   ]
 }

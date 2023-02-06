@@ -10,7 +10,6 @@ import { baseURL } from './baseUrl'
 })
 
 export class TodoService {
-  subject$: any;
 
   constructor(private http: HttpClient) { }
 

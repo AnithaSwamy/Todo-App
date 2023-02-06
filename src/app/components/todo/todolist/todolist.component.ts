@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,7 +12,9 @@ import { TodoformComponent } from '../todoform/todoform.component';
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.scss'],
 })
+
 export class TodolistComponent implements OnInit {
+
   @ViewChild("fchild")
   public fComp!: TodoformComponent;
 
@@ -27,8 +29,9 @@ export class TodolistComponent implements OnInit {
   pendingTask: any;
 
   constructor(private service: TodoService, private toastr: ToastrService, private router: Router,
-    private userApi: UserService, private route: ActivatedRoute) {
+    private userApi: UserService, private route: ActivatedRoute, private _element: ElementRef) {
   }
+  
   ngOnInit() {
     console.log(this.userApi.getAccessToken().id);
     this.getItems();
